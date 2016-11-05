@@ -1,3 +1,11 @@
+var pedalOn = false;
+$(function() {
+  // Handler for .ready() called.
+    $('#pedal-toggle').click(function(){
+        pedalOn = !pedalOn; 
+        console.log('pedal on status: ', pedalOn);
+    });
+});
 
 window.onload = function () {
 	MIDI.loadPlugin({
@@ -65,7 +73,7 @@ simpleKeyboard = {
           noteNumber: noteNumber,
           channel: self.channel,
           velocity: self.velocity,
-          pedalOn: true,
+          pedalOn: pedalOn,
           userTriggered: true,
         });
       }
@@ -84,7 +92,7 @@ simpleKeyboard = {
           noteNumber: noteNumber,
           channel: self.channel,
           velocity: self.velocity,
-          pedalOn: true,
+          pedalOn: pedalOn,
           userTriggered: true,
         });
       }
@@ -107,7 +115,7 @@ simpleKeyboard = {
           noteNumber: noteNumber,
           channel: self.channel,
           velocity: self.velocity,
-          pedalOn: true,
+          pedalOn: pedalOn,
           userTriggered: true,
         });
       }
@@ -126,7 +134,7 @@ simpleKeyboard = {
           noteNumber: noteNumber,
           channel: self.channel,
           velocity: self.velocity,
-          pedalOn: true,
+          pedalOn: pedalOn,
           userTriggered: true,
         });
       }
@@ -165,7 +173,7 @@ simpleKeyboard = {
           noteNumber: noteNumber,
           channel: self.channel,
           velocity: self.velocity,
-          pedalOn: true,
+          pedalOn: pedalOn,
           userTriggered: true,
         });
 
@@ -195,7 +203,7 @@ simpleKeyboard = {
           noteNumber: noteNumber,
           channel: self.channel,
           velocity: self.velocity,
-          pedalOn: true,
+          pedalOn: pedalOn,
           userTriggered: true,
         });
       }
