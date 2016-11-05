@@ -1,5 +1,7 @@
 var pedalOn = false;
 var volumeRange = 50;
+//var transposeRange = 0;
+
 
 $(function() {
   // Handler for .ready() called.
@@ -8,7 +10,10 @@ $(function() {
         console.log('pedal on status: ', pedalOn);
     });
     $('#volume-range').on('input', function () {
-        volumeRange = $(this).val();
+        volumeRange = parseInt($(this).val());
+    });
+    $('#transpose-range').on('input', function () {
+        simpleKeyboard.shift = parseInt($(this).val());
     });
 });
 
@@ -237,6 +242,7 @@ simpleKeyboard = {
   },
 
   adjustShift: function(noteNumber) {
+      console.log(this.shift)
     noteNumber += this.shift;
     return noteNumber;
   },
