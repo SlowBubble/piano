@@ -1,9 +1,14 @@
 var pedalOn = false;
+var volumeRange = 50;
+
 $(function() {
   // Handler for .ready() called.
     $('#pedal-toggle').click(function(){
         pedalOn = !pedalOn; 
         console.log('pedal on status: ', pedalOn);
+    });
+    $('#volume-range').on('input', function () {
+        volumeRange = $(this).val();
     });
 });
 
@@ -36,7 +41,7 @@ loadSound = function() {
       $(window).on('keyboardDown.sound', function(evt, data) {
           if (typeof data.noteNumber !== 'undefined') {
             data.channel = data.channel || DEFAULT_CHANNEL;
-            MIDI.noteOn(data.channel, data.noteNumber, damp(data.velocity, data.noteNumber));
+            MIDI.noteOn(data.channel, data.noteNumber, damp(data.velocity, data.noteNumber, volumeRange));
           }
       });
 
@@ -48,8 +53,8 @@ loadSound = function() {
           }
       });
     }
-function damp(velocity, note) {
-  return velocity * note / 70;
+function damp(velocity, note, volumeRange) {
+  return velocity * note / 70 * volumeRange / 100;
 }
 simpleKeyboard = {
   channel: 0,
