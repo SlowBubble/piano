@@ -1,3 +1,14 @@
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBdSiXI5w3pKNgUMxxXIQE77VZgU7b0eUs",
+    authDomain: "piano-aa8e0.firebaseapp.com",
+    databaseURL: "https://piano-aa8e0.firebaseio.com",
+    storageBucket: "piano-aa8e0.appspot.com",
+    messagingSenderId: "154214881971"
+  };
+  firebase.initializeApp(config);
+
+
 var pedalOn = false;
 var volumeRange = 50;
 //var transposeRange = 0;
@@ -59,7 +70,7 @@ loadSound = function() {
       });
     }
 function damp(velocity, note, volumeRange) {
-  return velocity * note / 70 * volumeRange / 100;
+  return velocity * volumeRange / 100;
 }
 simpleKeyboard = {
   channel: 0,
