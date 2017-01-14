@@ -10,7 +10,7 @@
 
 
 var pedalOn = false;
-var volumeRange = 50;
+var volumeRange = 30;
 //var transposeRange = 0;
 
 
